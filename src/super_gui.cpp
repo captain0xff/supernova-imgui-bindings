@@ -58,7 +58,7 @@ void DebugGUI::initialize_imgui() {
 }
 
 void DebugGUI::setup_io() {
-	io = ImGui::GetIO();
+	io = &ImGui::GetIO();
 }
 
 void DebugGUI::initialize_backends(Window &window, Renderer &renderer) {

@@ -20,7 +20,7 @@ class DebugGUI {
 		void destroy();
 
 	public:
-		ImGuiIO io;
+		ImGuiIO *io;
 
 		DebugGUI(Window &window, Renderer &renderer);
 		~DebugGUI();
