@@ -21,7 +21,6 @@ DebugGUI gui(window, renderer);
 // In the gameloop
 running = events.process_events(&EVENT_KEYS, nullptr, nullptr, gui.get_event_handler());
 gui.create_new_frame();
-create_new_frame();
 ImGui::Begin("Debug GUI");
 ImGui::Text("Hello! Please overwrite the update function to remove this annoying text");
 ImGui::End();
@@ -46,7 +45,7 @@ MyDebugGUI::MyDebugGUI(Window &window, Renderer &renderer): DebugGUI(window, ren
 void MyDebugGUI::update(double fps) {
 	create_new_frame();
 
-    ImGui::Begin("Window");
+	ImGui::Begin("Window");
 	ImGui::Text("FPS: %f", fps);
 	ImGui::Button("Cool");
 	ImGui::End();
