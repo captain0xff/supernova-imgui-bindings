@@ -1,7 +1,7 @@
 #include "super_gui.h"
 
-#include <imgui/imgui_impl_sdl2.h>
-#include <imgui/imgui_impl_sdlrenderer2.h>
+#include <imgui/imgui_impl_sdl3.h>
+#include <imgui/imgui_impl_sdlrenderer3.h>
 
 
 
@@ -18,7 +18,7 @@ DebugGUI::~DebugGUI() {
 }
 
 bool DebugGUI::process_events(SDL_Event &event) {
-	ImGui_ImplSDL2_ProcessEvent(&event);
+	ImGui_ImplSDL3_ProcessEvent(&event);
 
 	return false;
 }
@@ -30,8 +30,8 @@ std::function<bool(SDL_Event &)> DebugGUI::get_event_handler() {
 }
 
 void DebugGUI::create_new_frame() {
-	ImGui_ImplSDLRenderer2_NewFrame();
-	ImGui_ImplSDL2_NewFrame();
+	ImGui_ImplSDLRenderer3_NewFrame();
+	ImGui_ImplSDL3_NewFrame();
 	ImGui::NewFrame();
 }
 
@@ -45,7 +45,7 @@ void DebugGUI::update() {
 
 void DebugGUI::draw() {
 	ImGui::Render();
-	ImGui_ImplSDLRenderer2_RenderDrawData(ImGui::GetDrawData());
+	ImGui_ImplSDLRenderer3_RenderDrawData(ImGui::GetDrawData());
 }
 
 void DebugGUI::set_style() {
@@ -62,12 +62,12 @@ void DebugGUI::setup_io() {
 }
 
 void DebugGUI::initialize_backends(Window &window, Renderer &renderer) {
-	ImGui_ImplSDL2_InitForSDLRenderer(window.window.get(), renderer.renderer.get());
-	ImGui_ImplSDLRenderer2_Init(renderer.renderer.get());
+	ImGui_ImplSDL3_InitForSDLRenderer(window.window.get(), renderer.renderer.get());
+	ImGui_ImplSDLRenderer3_Init(renderer.renderer.get());
 }
 
 void DebugGUI::destroy() {
-	ImGui_ImplSDLRenderer2_Shutdown();
-	ImGui_ImplSDL2_Shutdown();
+	ImGui_ImplSDLRenderer3_Shutdown();
+	ImGui_ImplSDL3_Shutdown();
 	ImGui::DestroyContext();
 }
