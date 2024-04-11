@@ -1,4 +1,4 @@
-#include "super_gui.h"
+#include "supergui.h"
 
 #include <imgui/imgui_impl_sdl3.h>
 #include <imgui/imgui_impl_sdlrenderer3.h>

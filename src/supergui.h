@@ -1,5 +1,5 @@
-#ifndef SUPER_GUI_H
-#define SUPER_GUI_H
+#ifndef SUPERGUI_H
+#define SUPERGUI_H
 
 
 #include <functional>
@@ -32,4 +32,4 @@ class DebugGUI {
 		void draw();
 };
 
-#endif /* SUPER_GUI_H */
+#endif /* SUPERGUI_H */
