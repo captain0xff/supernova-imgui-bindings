@@ -6,11 +6,11 @@
 
 
 // Classes
-DebugGUI::DebugGUI(Window &window, Renderer &renderer) {
+DebugGUI::DebugGUI(Window &_window, Renderer &_renderer): renderer(_renderer) {
 	initialize_imgui();
 	setup_io();
 	set_style();
-	initialize_backends(window, renderer);
+	initialize_backends(_window, _renderer);
 }
 
 DebugGUI::~DebugGUI() {
@@ -45,7 +45,7 @@ void DebugGUI::update() {
 
 void DebugGUI::draw() {
 	ImGui::Render();
-	ImGui_ImplSDLRenderer3_RenderDrawData(ImGui::GetDrawData());
+	ImGui_ImplSDLRenderer3_RenderDrawData(ImGui::GetDrawData(), renderer.renderer.get());
 }
 
 void DebugGUI::set_style() {

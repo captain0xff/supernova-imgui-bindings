@@ -16,11 +16,12 @@ class DebugGUI {
 		void set_style();
 		void initialize_imgui();
 		void setup_io();
-		void initialize_backends(Window &window, Renderer &renderer);
+		void initialize_backends(Window &_window, Renderer &_renderer);
 		void destroy();
 
 	public:
 		ImGuiIO *io;
+		Renderer &renderer;
 
 		DebugGUI(Window &window, Renderer &renderer);
 		~DebugGUI();
